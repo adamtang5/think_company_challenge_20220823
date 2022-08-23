@@ -1,8 +1,19 @@
 /* TODO Add site wide styles */
 * {
+    --color-text-primary: rgb(77, 77, 77);
     --color-bg-dark: rgb(89, 89, 89);
     --color-border: rgb(204, 204, 204);
     --color-border-lighter: rgb(240, 240, 240);
+    --font-family-primary: Trebuchet, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
 }
 
 .centered {

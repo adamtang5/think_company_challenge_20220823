@@ -6,7 +6,7 @@ const TypeSection = ({ prompt, typeOptions, setType, typeHelperText }) => {
     };
 
     return (
-        <section className="flex-column type-section">
+        <section className="flex-column type-section bottom-border">
             <h3 className="prompt-text">{prompt}</h3>
             <Select
                 options={typeOptions}

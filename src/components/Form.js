@@ -72,9 +72,8 @@ const FareCalculatorForm = () => {
     }, [zoneId, type, purchase, trips]);
 
     return (
-        <div id="form" className="centered flex-column">
+        <div id="main-form" className="centered flex-column">
             <FormHeader
-                className="inverted-colors"
                 title="Regional Rail Fares"
             />
             <ZoneSection
@@ -100,7 +99,6 @@ const FareCalculatorForm = () => {
                 setTrips={setTrips}
             />
             <ResultSection
-                className="inverted-colors"
                 prompt="Your fare will cost"
                 total={total}
             />
