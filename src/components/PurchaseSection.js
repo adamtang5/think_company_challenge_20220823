@@ -1,6 +1,6 @@
 const PurchaseSection = ({ prompt, purchaseOptions, purchase, setPurchase }) => {
     const handlePurchaseChange = e => {
-        // console.log(e.target.value);
+        console.log(e.target.value);
         setPurchase(e.target.value);
     };
 

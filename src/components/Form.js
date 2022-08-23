@@ -40,18 +40,40 @@ const purchaseOptions = [
     },
 ];
 
+const calculateFare = (zoneId, type, purchase, trips) => {
+    const unitPrice = data.zones.find(zone => zone.zone === zoneId)
+        .fares.find(fare => fare.type === type && fare.purchase === purchase)
+        .price;
+    const special10TripPrice = data.zones.find(zone => zone.zone === zoneId)
+        .fares.find(fare => fare.trips === 10).price;
+
+    // console.log(unitPrice, special10TripPrice);
+
+    if (purchase === purchases[1]) {    // no special pricing for onboard purchase
+        console.log(purchase);
+        return trips * unitPrice;
+    } else {     // see if special bundle is more affordable than unit pricing
+        return Math.min(trips * unitPrice,
+            Math.floor(trips / 10) * special10TripPrice + (trips % 10) * unitPrice);
+    }
+};
+
 const FareCalculatorForm = () => {
     // console.log(typeOptions);
     const [zoneId, setZoneId] = useState(zoneOptions[0].value);
     const [type, setType] = useState(typeOptions[0].value);
     const [typeHelperText, setTypeHelperText] = useState(data.info[typeOptions[0].value]);
     const [purchase, setPurchase] = useState(purchaseOptions[0].value);
+    const [trips, setTrips] = useState(1);
+    const [total, setTotal] = useState("$0.00");
 
     useEffect(() => {
-        console.log(data.info[type]);
         setTypeHelperText(data.info[type]);
     }, [type]);
 
+    useEffect(() => {
+        setTotal('$' + calculateFare(zoneId, type, purchase, trips).toFixed(2));
+    }, [zoneId, type, purchase, trips]);
 
     return (
         <div id="form" className="centered flex-column">
@@ -76,10 +98,15 @@ const FareCalculatorForm = () => {
                 purchase={purchase}
                 setPurchase={setPurchase}
             />
-            <TripsSection prompt="How many rides will you need?" />
+            <TripsSection
+                prompt="How many rides will you need?"
+                trips={trips}
+                setTrips={setTrips}
+            />
             <ResultSection
                 className="inverted-colors"
                 prompt="Your fare will cost"
+                total={total}
             />
         </div>
     )

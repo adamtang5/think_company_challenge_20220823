@@ -1,6 +1,9 @@
-const ResultSection = () => {
+const ResultSection = ({ prompt, total }) => {
     return (
-        <div></div>
+        <section className="flex-column result-section">
+            <h3 className="prompt-text">{prompt}</h3>
+            <h1 className="result-text">{total}</h1>
+        </section>
     )
 };
 
