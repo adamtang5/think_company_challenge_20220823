@@ -12,13 +12,32 @@ const zoneOptions = data.zones.map(zoneData => {
     return { value: zoneData.zone, label: zoneData.name }
 });
 
+const types = Object.keys(data.info).slice(0, 3);
+const typeOptions = [
+    {
+        label: "Any Time",
+        value: types[0],
+    },
+    {
+        label: "Weekdays",
+        value: types[1],
+    },
+    {
+        label: "Evenings / Weekends",
+        value: types[2],
+    },
+];
+
 const FareCalculatorForm = () => {
-    // console.log(data);
+    // console.log(typeOptions);
     const [zoneId, setZoneId] = useState(zoneOptions[0].value);
+    const [type, setType] = useState(typeOptions[0].value);
+    const [typeHelperText, setTypeHelperText] = useState(data.info[typeOptions[0].value]);
 
     useEffect(() => {
-        console.log(zoneId);
-    }, [zoneId]);
+        console.log(data.info[type]);
+        setTypeHelperText(data.info[type]);
+    }, [type]);
 
 
     return (
@@ -32,7 +51,12 @@ const FareCalculatorForm = () => {
                 zoneOptions={zoneOptions}
                 setZoneId={setZoneId}
             />
-            <TypeSection prompt="When are you riding?" />
+            <TypeSection
+                prompt="When are you riding?"
+                typeOptions={typeOptions}
+                setType={setType}
+                typeHelperText={typeHelperText}
+            />
             <PurchaseSection prompt="Where will you purchase the fare?" />
             <TripsSection prompt="How many rides will you need?" />
             <ResultSection

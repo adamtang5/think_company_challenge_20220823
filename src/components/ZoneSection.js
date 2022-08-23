@@ -3,7 +3,8 @@ import Select from "react-select";
 const ZoneSection = ({ prompt, zoneOptions, setZoneId }) => {
     const handleZoneChange = (value) => {
         setZoneId(value.value);
-    }
+    };
+
     return (
         <section className="flex-column zone-section">
             <h3 className="prompt-text">{prompt}</h3>
