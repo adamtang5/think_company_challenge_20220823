@@ -1,6 +1,12 @@
-const FormHeader = () => {
+import Logo from "./Logo";
+
+const FormHeader = ({ title }) => {
     return (
-        <div></div>
+        <header className="flex-row">
+            <div id="form-logo">
+                <Logo width={"75px"} />
+            </div>
+        </header>
     )
 };
 
