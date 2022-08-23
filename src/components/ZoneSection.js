@@ -1,6 +1,20 @@
-const ZoneSection = () => {
+import Select from "react-select";
+
+const ZoneSection = ({ prompt, zoneOptions, setZoneId }) => {
+    const handleZoneChange = (value) => {
+        setZoneId(value.value);
+    }
     return (
-        <div></div>
+        <section className="flex-column zone-section">
+            <h3 className="prompt-text">{prompt}</h3>
+            <Select
+                options={zoneOptions}
+                name="zone-id"
+                id="zone-id-input"
+                onChange={handleZoneChange}
+                defaultValue={zoneOptions[0]}
+            />
+        </section>
     )
 };
 
