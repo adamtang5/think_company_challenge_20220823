@@ -12,19 +12,15 @@ const zoneOptions = data.zones.map(zoneData => {
     return { value: zoneData.zone, label: zoneData.name }
 });
 
-const types = Object.keys(data.info).slice(0, 3);
+const types = Object.keys(data.info).slice(1, 3);   // `anytime` is not one of the selectable options
 const typeOptions = [
     {
-        label: "Any Time",
+        label: "Weekdays",
         value: types[0],
     },
     {
-        label: "Weekdays",
-        value: types[1],
-    },
-    {
         label: "Evenings / Weekends",
-        value: types[2],
+        value: types[1],
     },
 ];
 
