@@ -1,6 +1,8 @@
+import FareCalculatorForm from "./components/Form";
+
 function App() {
   return (
-    <h1>Form</h1>
+    <FareCalculatorForm />
   );
 }
 
