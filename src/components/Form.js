@@ -28,11 +28,24 @@ const typeOptions = [
     },
 ];
 
+const purchases = Object.keys(data.info).slice(3);
+const purchaseOptions = [
+    {
+        label: "Station Kiosk",
+        value: purchases[0],
+    },
+    {
+        label: "Onboard",
+        value: purchases[1],
+    },
+];
+
 const FareCalculatorForm = () => {
     // console.log(typeOptions);
     const [zoneId, setZoneId] = useState(zoneOptions[0].value);
     const [type, setType] = useState(typeOptions[0].value);
     const [typeHelperText, setTypeHelperText] = useState(data.info[typeOptions[0].value]);
+    const [purchase, setPurchase] = useState(purchaseOptions[0].value);
 
     useEffect(() => {
         console.log(data.info[type]);
@@ -57,7 +70,12 @@ const FareCalculatorForm = () => {
                 setType={setType}
                 typeHelperText={typeHelperText}
             />
-            <PurchaseSection prompt="Where will you purchase the fare?" />
+            <PurchaseSection
+                prompt="Where will you purchase the fare?"
+                purchaseOptions={purchaseOptions}
+                purchase={purchase}
+                setPurchase={setPurchase}
+            />
             <TripsSection prompt="How many rides will you need?" />
             <ResultSection
                 className="inverted-colors"
