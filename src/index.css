@@ -1,4 +1,10 @@
 /* TODO Add site wide styles */
+* {
+    --color-bg-dark: rgb(89, 89, 89);
+    --color-border: rgb(204, 204, 204);
+    --color-border-lighter: rgb(240, 240, 240);
+}
+
 .centered {
     margin: 0 auto;
 }
