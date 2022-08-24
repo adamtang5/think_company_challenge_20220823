@@ -1,4 +1,5 @@
 import Select from "react-select";
+import { customTheme } from "../util/SelectStyles";
 
 const ZoneSection = ({ prompt, zoneOptions, setZoneId }) => {
     const handleZoneChange = (value) => {
@@ -9,6 +10,7 @@ const ZoneSection = ({ prompt, zoneOptions, setZoneId }) => {
         <section className="flex-column zone-section bottom-border">
             <h3 className="prompt-text">{prompt}</h3>
             <Select
+                theme={customTheme}
                 options={zoneOptions}
                 name="zone-id"
                 id="zone-id-input"
