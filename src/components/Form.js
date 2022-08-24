@@ -7,6 +7,7 @@ import TripsSection from "./TripsSection";
 import ResultSection from "./ResultSection";
 import data from "../data/fares.json";
 import "./Form.css";
+import { addTestId } from "../util/DomUtils";
 
 const zoneOptions = data.zones.map(zoneData => {
     return { value: zoneData.zone, label: zoneData.name }
@@ -62,6 +63,11 @@ const FareCalculatorForm = () => {
     const [purchase, setPurchase] = useState(purchaseOptions[0].value);
     const [trips, setTrips] = useState(1);
     const [total, setTotal] = useState("$0.00");
+
+    useEffect(() => {
+        addTestId('zone-id-input', 'zone-id');
+        addTestId('type-input', 'type');
+    }, []);
 
     useEffect(() => {
         setTypeHelperText(data.info[type]);

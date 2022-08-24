@@ -6,7 +6,10 @@ const PurchaseSection = ({ prompt, purchaseOptions, purchase, setPurchase }) => 
 
     return (
         <section className="flex-column purchase-section bottom-border">
-            <h3 className="prompt-text">{prompt}</h3>
+            <h3
+                data-testid="purchase-section-prompt"
+                className="prompt-text"
+            >{prompt}</h3>
             <div className="flex-column purchase-options">
                 {purchaseOptions?.map(option => (
                     <label
@@ -16,6 +19,7 @@ const PurchaseSection = ({ prompt, purchaseOptions, purchase, setPurchase }) => 
                         <input
                             type="radio"
                             name="purchase"
+                            data-testid={option.value}
                             value={option.value}
                             checked={option.value === purchase}
                             onChange={handlePurchaseChange}
@@ -23,6 +27,12 @@ const PurchaseSection = ({ prompt, purchaseOptions, purchase, setPurchase }) => 
                         {option.label}
                     </label>
                 ))}
+                <input
+                    data-testid="purchase"
+                    value={purchase}
+                    hidden
+                    readOnly
+                />
             </div>
         </section>
     )

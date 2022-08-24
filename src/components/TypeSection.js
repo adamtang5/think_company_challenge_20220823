@@ -8,7 +8,10 @@ const TypeSection = ({ prompt, typeOptions, setType, typeHelperText }) => {
 
     return (
         <section className="flex-column type-section bottom-border">
-            <h3 className="prompt-text">{prompt}</h3>
+            <h3
+                data-testid="type-section-prompt"
+                className="prompt-text"
+            >{prompt}</h3>
             <Select
                 theme={customTheme}
                 options={typeOptions}
@@ -17,7 +20,10 @@ const TypeSection = ({ prompt, typeOptions, setType, typeHelperText }) => {
                 onChange={handleTypeChange}
                 defaultValue={typeOptions[0]}
             />
-            <p className="helper-text">{typeHelperText}</p>
+            <p
+                data-testid="type-section-helper"
+                className="helper-text"
+            >{typeHelperText}</p>
         </section>
     )
 };

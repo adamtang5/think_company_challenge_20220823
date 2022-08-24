@@ -23,11 +23,15 @@ const TripsSection = ({ prompt, trips, setTrips }) => {
 
     return (
         <section className="flex-column trips-section">
-            <h3 className="prompt-text">{prompt}</h3>
+            <h3
+                data-testid="trips-section-prompt"
+                className="prompt-text"
+            >{prompt}</h3>
             <input
                 id="trips-input"
                 type="text"
                 name="trips"
+                data-testid="trips"
                 value={trips}
                 onKeyDown={handleTripsUpDown}
                 onChange={handleTripsChange}

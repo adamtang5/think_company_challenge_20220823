@@ -8,7 +8,10 @@ const ZoneSection = ({ prompt, zoneOptions, setZoneId }) => {
 
     return (
         <section className="flex-column zone-section bottom-border">
-            <h3 className="prompt-text">{prompt}</h3>
+            <h3
+                data-testid="zone-section-prompt"
+                className="prompt-text"
+            >{prompt}</h3>
             <Select
                 theme={customTheme}
                 options={zoneOptions}

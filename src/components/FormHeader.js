@@ -6,7 +6,10 @@ const FormHeader = ({ title }) => {
             <div id="form-logo">
                 <Logo />
             </div>
-            <h2 className="title-text mid-size">{title}</h2>
+            <h2
+                data-testid="header-title"
+                className="title-text mid-size"
+            >{title}</h2>
         </header>
     )
 };
