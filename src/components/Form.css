@@ -49,6 +49,7 @@ p.helper-text {
     font-size: 16px;
     font-weight: 300;
     color: var(--color-text-lighter);
+    width: 75%;
 }
 
 .purchase-options>label {
@@ -68,7 +69,7 @@ h1.result-text {
     font-weight: 900;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
 
     header.flex-row {
         gap: 5px;
@@ -89,7 +90,6 @@ h1.result-text {
 
     p.helper-text {
         font-size: 14px;
-        width: 75%;
     }
 
     .purchase-options>label {
