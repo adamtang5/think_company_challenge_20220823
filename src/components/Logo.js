@@ -1,12 +1,11 @@
 import SEPTALogo from "../static/img/SEPTA.png";
 
-const Logo = ({ width }) => {
+const Logo = () => {
     return (
         <img
             id="logo-png"
             src={SEPTALogo}
             alt="home"
-            width={width}
         />
     )
 };

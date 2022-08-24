@@ -16,6 +16,10 @@ header.flex-row {
     padding: 18px 0;
 }
 
+img#logo-png {
+    width: 65px;
+}
+
 h2.mid-size {
     font-size: 40px;
 }
@@ -62,4 +66,41 @@ p.helper-text {
 h1.result-text {
     font-size: 80px;
     font-weight: 900;
+}
+
+@media screen and (max-width: 400px) {
+
+    header.flex-row {
+        gap: 5px;
+        padding: 10px 0;
+    }
+
+    img#logo-png {
+        width: 40px;
+    }
+
+    h2.mid-size {
+        font-size: 24px;
+    }
+
+    h3.prompt-text {
+        font-size: 20px;
+    }
+
+    p.helper-text {
+        font-size: 14px;
+        width: 75%;
+    }
+
+    .purchase-options>label {
+        font-size: 18px;
+    }
+
+    #trips-input {
+        font-size: 20px;
+    }
+
+    h1.result-text {
+        font-size: 60px;
+    }
 }
