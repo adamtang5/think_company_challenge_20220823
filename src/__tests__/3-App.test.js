@@ -1,16 +1,24 @@
 import React from 'react';
 import App from '../App';
-import FareCalculatorForm from '../components/Form';
 import { screen, render, fireEvent, cleanup } from '@testing-library/react';
 import "@testing-library/jest-dom/extend-expect";
 
-// import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-// import { shallow, configure } from 'enzyme';
-// import { getByText } from '@testing-library/dom';
+import data from '../data/fares.json';
 
 const renderApp = () => render(<App />);
 
-let resultTotal, zoneId, type, purchase, trips, headerTitle, zonePrompt, typePrompt, typeHelper, purchasePrompt, tripsPrompt, resultPrompt;
+let resultTotal,
+    zoneId,
+    type,
+    purchase,
+    trips,
+    headerTitle,
+    zonePrompt,
+    typePrompt,
+    typeHelper,
+    purchasePrompt,
+    tripsPrompt,
+    resultPrompt;
 
 afterEach(() => cleanup());
 
@@ -37,4 +45,10 @@ test('fare calculator mounts', () => {
     expect(purchasePrompt).toHaveTextContent('Where will you purchase the fare?');
     expect(tripsPrompt).toHaveTextContent('How many rides will you need?');
     expect(resultPrompt).toHaveTextContent('Your fare will cost');
-})
+    expect(zoneId).toHaveValue('1');
+    expect(type).toHaveValue('weekday');
+    expect(typeHelper).toHaveTextContent(data.info.weekday);
+    expect(purchase).toHaveValue('advance_purchase');
+    expect(trips).toHaveValue('1');
+    expect(resultTotal).toHaveTextContent('$' + data.zones[0].fares[0].price);
+});
