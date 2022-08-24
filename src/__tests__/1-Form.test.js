@@ -7,7 +7,7 @@ import FareCalculatorForm from '../components/Form';
 
 describe('Form', () => {
     configure({ adapter: new Adapter() });
-    test('Form renders a div with an id of "main-form"', () => {
+    test('FareCalculatorForm renders a div with an id of "main-form"', () => {
         const form = shallow(
             <FareCalculatorForm />
         );
